@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../services/session.service";
 
@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   error: string;
   privateData: any = '';
 
-  constructor(private session: SessionService) { }
+  constructor(private session: SessionService,
+    private router: Router) { }
 
   ngOnInit() {
     this.session.isLoggedIn()
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.session.login(this.formInfo)
       .subscribe(
+        
         (user) => this.successCb(user),
         (err) => this.errorCb(err)
       );
@@ -62,12 +64,12 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  errorCb(err) {
+  errorCb(err): any {
     this.error = err;
     this.user = null;
   }
   
-  successCb(user) {
+  successCb(user): any {
     this.user = user;
     this.error = null;
   }

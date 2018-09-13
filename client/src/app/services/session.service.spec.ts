@@ -24,10 +24,6 @@ export class SessionService {
   logout() {
     return this.http.post(`${this.mainURL}/logout`, {}, {withCredentials: true}).pipe(map(res => res.json()), catchError(this.handleError));
   }
-///delete welcome if doesn't work
-  welcome() {
-    return this.http.post(`${this.mainURL}/welcome`, {}, {withCredentials: true}).pipe(map(res => res.json()), catchError(this.handleError));
-  }
 
   isLoggedIn() {
     return this.http.get(`${this.mainURL}/loggedin`, {withCredentials: true})
