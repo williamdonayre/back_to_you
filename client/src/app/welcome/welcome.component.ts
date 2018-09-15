@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../services/session.service";
 
 
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -21,6 +22,13 @@ export class WelcomeComponent implements OnInit {
       .subscribe(
         (user) => this.successCb(user)
       );
+    }
+      logout() {
+        this.session.logout()
+          .subscribe(
+            () => this.successCb(null),
+            (err) => this.errorCb(err)
+          );  
   }
 
   successCb(user) {

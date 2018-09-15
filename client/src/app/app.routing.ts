@@ -12,42 +12,19 @@ import { SingleEntryComponent } from './single-entry/single-entry.component';
 
 export const routes: Routes = [
 //Authorization routes
-    { path: '', component: LoginComponent },
-    // { path: '**', redirectTo: '' },
+{ path: '', component: LoginComponent },
+// { path: '**', redirectTo: '' },
 //Welcome route
-    { path: 'welcome', component: WelcomeComponent },
+{ path: 'welcome', component: WelcomeComponent },
 
 //Entries route - multiple and single
-{
-    path:'new-entry',
-    component: NewEntryComponent
-},
-{
-    path: 'entries',
-    component: AllEntriesComponent
-
-},
-{
-    path: 'entries/:id',
-    component: SingleEntryComponent
-
-},
-{
-    path: 'delete/:id',
-    component: SingleEntryComponent
-
-},
+{  path:'new-entry',  component: NewEntryComponent },
+{  path: 'entries',   component: AllEntriesComponent },
+{  path: 'entries/:id',  component: SingleEntryComponent },
+{  path: 'delete/:id',  component: SingleEntryComponent  },
 //User Profile Routes
-{
-    path: 'user/:id',
-    component: UserProfileComponent
-
-},
-{
-    path: 'user/:id',
-    component: UserProfileComponent
-
-},
+{  path: 'user/:id',  component: UserProfileComponent  },
+{  path: 'user/:id',  component: UserProfileComponent },
 
 
 
