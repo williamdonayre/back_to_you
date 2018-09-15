@@ -13,7 +13,7 @@ import { SingleEntryComponent } from './single-entry/single-entry.component';
 export const routes: Routes = [
 //Authorization routes
     { path: '', component: LoginComponent },
-    { path: '**', redirectTo: '' },
+    // { path: '**', redirectTo: '' },
 //Welcome route
     { path: 'welcome', component: WelcomeComponent },
 
