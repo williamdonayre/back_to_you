@@ -11,7 +11,7 @@ const path         = require('path');
 const session    = require('express-session');
 const passport     = require('passport');
 const cors         = require('cors');
-
+const MongoStore   = require('connect-mongo')(session);
 
 mongoose.Promise = Promise;
 mongoose
@@ -35,11 +35,15 @@ app.use(session({
   secret: 'angular auth passport secret shh',
   resave: true,
   saveUninitialized: true,
-  cookie : { httpOnly: true, maxAge: 2419200000 }
+  cookie : { httpOnly: true, maxAge: 2419200000 },
+  store: new MongoStore({ mongooseConnection: mongoose.connection})
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: ['http://http://localhost:4200/']
+}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -69,9 +73,23 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 //Routes
 const index = require('./routes/index');
-const authApi = require('./routes/auth-routes');
 app.use('/', index);
+
+const authApi = require('./routes/auth-routes');
 app.use('/', authApi);
+
+const entryRoutes = require('./routes/entry');
+app.use('/api/entries', entryRoutes); 
+
+const userRoutes = require('./routes/userProfile');
+app.use('/api/user', userRoutes);
+
+const emotionsRoutes = require('./routes/emotions');
+app.use('/api/emotions', emotionsRoutes);
+
+const activitiesRoutes = require('./routes/activities');
+app.use('/api/activities', activitiesRoutes);
+
 app.use(function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });

@@ -15,8 +15,8 @@ getEntries() {
     .pipe(map((res) => res.json()));
 }
 
-get(entryId) {
-  return this.http.get(`${environment.BASE_URL}/api/entries/${entryId}`)
+get(entry) {
+  return this.http.get(`${environment.BASE_URL}/api/entries/${entry._id}`, entry)
   .pipe(map((res) => res.json()));
 }
 
@@ -25,12 +25,12 @@ post(form){
 }
 
 editEntry(entry) {
-  return this.http.put(`${environment.BASE_URL}/api/user/${entry._id}`, entry)
+  return this.http.put(`${environment.BASE_URL}/api/entries/${entry._id}/edit`, entry)
     .pipe(map((res) => res.json()));
 }
 
 removeEntry(entryId) {
-  return this.http.delete(`${environment.BASE_URL}/api/user/${entryId}`)
+  return this.http.delete(`${environment.BASE_URL}/api/entries/${entryId}`)
     .pipe(map((res) => res.json()));
 }
 }

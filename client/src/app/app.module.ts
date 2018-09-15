@@ -7,6 +7,10 @@ import { FormsModule } from "@angular/forms";
 
 
 import { SessionService } from "./services/session.service";
+import { EmotionsService } from "./services/emotions.service";
+import { ActivitiesService } from "./services/activities.service";
+import { UserService } from "./services/user.service";
+import { EntryService } from "./services/entry.service";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -39,7 +43,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
   ],
   providers: [ 
-    SessionService
+    SessionService,
+    // UserService,
+    // EntryService,
+    // EmotionsService,
+    // ActivitiesService
   ],
   bootstrap: [AppComponent]
 })
