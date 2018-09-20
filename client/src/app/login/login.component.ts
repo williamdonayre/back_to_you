@@ -51,8 +51,9 @@ export class LoginComponent implements OnInit {
   logout() {
     this.session.logout()
       .subscribe(
-        () => this.successCb(null),
-        (err) => this.errorCb(err)
+        // () => this.successCb(null),
+        // (err) => this.errorCb(err)
+        res => this.router.navigate([''])
       );
   }
 

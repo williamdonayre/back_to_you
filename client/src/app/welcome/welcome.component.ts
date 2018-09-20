@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../services/session.service";
 
@@ -15,7 +16,8 @@ export class WelcomeComponent implements OnInit {
   error: string;
   privateData: any = '';
 
-  constructor(private session: SessionService) { }
+  constructor(private session: SessionService,
+  private router: Router) { }
 
   ngOnInit() {
     this.session.isLoggedIn()
@@ -26,8 +28,9 @@ export class WelcomeComponent implements OnInit {
       logout() {
         this.session.logout()
           .subscribe(
-            () => this.successCb(null),
-            (err) => this.errorCb(err)
+            // () => this.successCb(null),
+            // (err) => this.errorCb(err)
+            res => this.router.navigate([''])
           );  
   }
 

@@ -90,6 +90,7 @@ app.use('/api/emotions', emotionsRoutes);
 const activitiesRoutes = require('./routes/activities');
 app.use('/api/activities', activitiesRoutes);
 
+
 app.use(function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });

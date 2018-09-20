@@ -16,16 +16,14 @@ export const routes: Routes = [
 // { path: '**', redirectTo: '' },
 //Welcome route
 { path: 'welcome', component: WelcomeComponent },
-
+{ path: 'logout', redirectTo: ''},
 //Entries route - multiple and single
 {  path:'new-entry',  component: NewEntryComponent },
 {  path: 'entries',   component: AllEntriesComponent },
 {  path: 'entries/:id',  component: SingleEntryComponent },
 {  path: 'delete/:id',  component: SingleEntryComponent  },
 //User Profile Routes
-{  path: 'user/:id',  component: UserProfileComponent  },
+{  path: 'user',  component: UserProfileComponent  },
 {  path: 'user/:id',  component: UserProfileComponent },
-
-
 
 ];

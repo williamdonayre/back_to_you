@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 //User Model
 const User    = require('../models/user.js');
 //Route to view user profile
-router.get('/user/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;
@@ -16,7 +16,7 @@ router.get('/user/:id', (req, res, next) => {
 });
 
 //Route to edit profile - render profile editing page
-router.get('/user/:id', (req, res, next) => {
+router.get('/:id/edit', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;
@@ -41,7 +41,7 @@ User.findByIdAndUpdate(req.params.id, updates)
 })
 
 //Route to delete profile
-router.delete('/user/:id', (req, res, next) => {
+router.delete('/:id/delete', (req, res, next) => {
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;
