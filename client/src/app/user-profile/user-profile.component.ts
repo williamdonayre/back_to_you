@@ -1,6 +1,11 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from "../services/session.service";
 
+import { UserService } from './../services/user.service';
+import { SessionService } from "../services/session.service";
+import { environment } from './../../environments/environment';
+
+// import "rxjs/add/operator/toPromise";
 
 @Component({
   selector: 'app-user-profile',
@@ -10,11 +15,22 @@ import { SessionService } from "../services/session.service";
 export class UserProfileComponent implements OnInit {
 
 
-  user: any = false;
+  user = <any>{};
   error: string;
-  privateData: any = '';
+  baseUrl = environment.BASE_URL;
+ 
+  public updatedUser: Object = {};
+  public userName: String;
+  public userUsername: String;
+  public userLocation: String;
 
-  constructor(private session: SessionService) { }
+  saveError = "";
+
+  constructor(
+  private session: SessionService,
+  private router: Router,
+  private userService: UserService
+) { }
 
   ngOnInit() {
     this.session.isLoggedIn()
@@ -25,6 +41,7 @@ export class UserProfileComponent implements OnInit {
 
   successCb(user) {
     this.user = user;
+    this.updatedUser = Object.create(user);
     this.error = null;
   }
 
@@ -33,4 +50,33 @@ export class UserProfileComponent implements OnInit {
     this.user = null;
   }
 
+
+  editUser() {
+   this.userService.editUser(this.updatedUser)
+   .subscribe((message) => {
+     console.log(message);
+    this.ngOnInit()
+    this.hideModal()
+     })
+  }
+
+  showModal(){
+    document.getElementById("myModal").style.display = "block"
+  }
+
+  hideModal(){
+    document.getElementById("myModal").style.display = "none"
+  }
+
+
+  deleteUser() {
+    if (window.confirm('Are you sure?')) {
+      this.userService.removeUser(this.user._id)
+        .subscribe(() => {
+          this.router.navigate(['']);
+        });
+      }
+
 }
+}
+  

@@ -16,29 +16,30 @@ router.get('/:id', (req, res, next) => {
 });
 
 //Route to edit profile - render profile editing page
-router.get('/:id/edit', (req, res, next) => {
+router.put('/:id/edit', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;
 }
 const updates = {
   name,
-  email, 
   username,
-  password,
-  location,
-  profilePic,
-  entries
+  location
 } = req.body;
 
-User.findByIdAndUpdate(req.params.id, updates)
-  .then(user => {
-      res.json({
-          message: 'Profile has been updated successfully'
-      });
-  })
-  .catch(error => next(error))
-})
+console.log('REQQQQQQQQQQQQ.BOD' + req.body);
+User.findByIdAndUpdate(req.params.id, updates, err =>{
+  if (err) {
+    console.log('LOOOOOOOOOOOK' + err);
+    res.json(err);
+     return;
+  }
+console.log('SUCCESS' + updates);
+  res.json({
+    message: "User updated successfully."
+  });
+});
+});
 
 //Route to delete profile
 router.delete('/:id/delete', (req, res, next) => {

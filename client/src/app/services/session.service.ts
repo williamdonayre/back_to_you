@@ -26,8 +26,7 @@ export class SessionService {
   }
 
   isLoggedIn() {
-    return this.http.get(`${this.mainURL}/loggedin`, {withCredentials: true})
-    .pipe(map(res =>
+    return this.http.get(`${this.mainURL}/loggedin`, {withCredentials: true}).pipe(map(res =>
       res.json()
     ),
     catchError(this.handleError)

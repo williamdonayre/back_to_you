@@ -13,17 +13,14 @@ export class UserService {
 
 
 getUser(userId) {
-  return this.http.get(`${environment.BASE_URL}/api/user/${userId}`)
-    .pipe(map((res) => res.json()));
+  return this.http.get(`${environment.BASE_URL}/api/user/${userId}`).pipe(map((res) => res.json()));
 }
 
 editUser(user) {
-  return this.http.put(`${environment.BASE_URL}/api/user/${user._id}`, user)
-    .pipe(map((res) => res.json()));
+  return this.http.put(`${environment.BASE_URL}/api/user/${user._id}/edit`, user).pipe(map((res) => res.json()));
 }
 
 removeUser(userId) {
-  return this.http.delete(`${environment.BASE_URL}/api/user/${userId}`)
-    .pipe(map((res) => res.json()));
+  return this.http.delete(`${environment.BASE_URL}/api/user/${userId}/delete`).pipe(map((res) => res.json()));
 }
 }

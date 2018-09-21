@@ -1,4 +1,7 @@
+import { EntryService } from './../services/entry.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-new-entry',

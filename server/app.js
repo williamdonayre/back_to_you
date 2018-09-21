@@ -42,7 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors({
   credentials: true,
-  origin: ['http://http://localhost:4200/']
+  origin: ['http://localhost:4200']
 }));
 app.use(logger('dev'));
 app.use(bodyParser.json());
