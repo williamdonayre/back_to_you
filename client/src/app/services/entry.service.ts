@@ -27,6 +27,6 @@ editEntry(entry) {
 }
 
 removeEntry(entryId) {
-  return this.http.delete(`${environment.BASE_URL}/api/entries/${entryId}`).pipe(map((res) => res.json()));
+  return this.http.delete(`${environment.BASE_URL}/api/entries/${entryId}/delete`).pipe(map((res) => res.json()));
 }
 }

@@ -21,7 +21,8 @@ export const routes: Routes = [
 {  path:'new-entry',  component: NewEntryComponent },
 {  path: 'entries',   component: AllEntriesComponent },
 {  path: 'entries/:id',  component: SingleEntryComponent },
-{  path: 'delete/:id',  component: SingleEntryComponent  },
+{  path: 'entries/:id/edit',  component: SingleEntryComponent  },
+{  path: 'entries/:id/delete',  component: SingleEntryComponent  },
 //User Profile Routes
 {  path: 'user',  component: UserProfileComponent  },
 {  path: 'user/:id',  component: UserProfileComponent },

@@ -1,7 +1,18 @@
-<div class="align-items-center d-flex py-5 cover photo-overlay" style="background-image: url('./assets/entries.jpg');">
+<!-- <div class="align-items-center d-flex py-5 cover photo-overlay" style="background-image: url('./assets/entries.jpg');">
   <div class="container">
     <div class="row">
  <p>All entries here</p>
     </div>
     </div>
-    </div>
+    </div> -->
+
+ <h1>Your Entries</h1> 
+ <p>Look at what you've recorded so far</p>  
+  <mat-list>
+  <mat-list-item *ngFor = "let entry of entries">
+   <a [routerLink]= "['/entries/:id']"> {{user.entries.dateCreated}} </a>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+
+<!-- look up calendar, maybe with dom manipulation and js entries can be entered on it and displayed that way -->

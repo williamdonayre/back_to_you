@@ -1,40 +1,3 @@
-<!-- 
-  <div class="align-items-center d-flex py-5 cover photo-overlay" style="background-image: url('./assets/USA+Road+Trip-6.jpg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1 class="">Hello, {{ user.name }}!</h1>
-          <img class="img-fluid d-block rounded" src="./assets/Person-Logo-1.png" id="profileimage" height="300">
-          <p class="">Back to You is a
-            <i>on the go</i> tool to keep track of your daily emotions in relation to your daily activities.</p>
-          <p>As members of this fast paced world we know how quickly we can lose track as to how and why we find ourselves in our current mood.</p>
-          <p>By logging in your mood three times a day, we hope to provide you with personalized data so you can recognize what activities enhance or dimish the quality of your day</p>
-        </div>
-        <div class="col-md-6 my-3">
-          <h1 class="text-center">My Profile
-            <br> </h1>
-          <form class="d-flex flex-column">
-            <div class="form-group my-2">
-              <label>Name</label>
-              <input type="email" class="form-control" placeholder="Enter name">
-              <small class="form-text text-muted"></small>
-            </div>
-            <div class="form-group my-2">
-              <label>Username</label>
-              <input type="password" class="form-control" placeholder="Enter username">
-              <small class="text-muted form-text"></small>
-            </div>
-            <div class="form-group my-2">
-              <label for="exampleInputEmail1">Location</label>
-              <input type="text" class="form-control" id="inlineFormInput" placeholder="City - State">
-              <small class="text-muted form-text"></small>
-            </div>
-            <button type="submit" class="btn btn-primary m-2 align-self-center">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> -->
   <div class="align-items-center d-flex py-5 cover photo-overlay" style="background-image: url('./assets/New+Zealand+Hikes-13.jpg');">
     <div class="container">
       <div class="row">
@@ -43,13 +6,13 @@
             <br> </h1>
           <form class="d-flex flex-column">
             <div class="form-group">
-              <label for="exampleInputEmail1">Date</label>
+              <label for="exampleInputEmail1" [(ngModel)]="newEntry['dateCreated']">Date</label>
               <input type="date">
             </div>
             <div class="form-group my-2">
               <label>Mood</label>
               <select class="custom-control custom-select">
-                <option selected="">Open this select menu</option>
+                <option selected="" [(ngModel)]="newEntry['emotion']"> Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
@@ -57,17 +20,17 @@
             <div class="form-group my-2">
                 <label>Activity</label>
               <select class="custom-control custom-select">
-                <option selected="">Open this select menu</option>
+                <option selected=""[(ngModel)]="newEntry['activities']"> Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
               </select> </div>
             <div class="form-group my-2">
               <label for="exampleInputEmail1">Comment</label>
-              <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+              <textarea class="form-control" id="exampleTextarea" rows="3"  [(ngModel)]="newEntry['comment']"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary m-2 align-self-center">Submit</button>
-            <button type="submit" class="btn btn-primary m-2 align-self-center w-25">Home</button>
+            <button type="submit" class="btn btn-primary m-2 align-self-center" (click)="post()">Submit</button>
+            <a class="btn btn-primary" [routerLink]="['/welcome']">Home</a>
           </form>
         </div>
       </div>

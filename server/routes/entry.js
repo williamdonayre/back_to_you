@@ -87,7 +87,7 @@ router.put('/:id/edit', (req, res, next) => {
 
 
 //Route to delete entry
-router.delete('/delete/:id', (req, res, next) => {
+router.delete('/:id/delete', (req, res, next) => {
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;

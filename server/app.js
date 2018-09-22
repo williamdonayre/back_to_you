@@ -15,7 +15,7 @@ const MongoStore   = require('connect-mongo')(session);
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/backtoyou', {useMongoClient: true})
+  .connect(process.env.MONGOLAB_ORANGE_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -42,7 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:4200']
+  origin: ['http://localhost:4200', 'https://back-to-you.herokuapp.com']
 }));
 app.use(logger('dev'));
 app.use(bodyParser.json());
