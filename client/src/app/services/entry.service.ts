@@ -18,7 +18,7 @@ get(entry) {
   return this.http.get(`${environment.BASE_URL}/api/entries/${entry._id}`, entry).pipe(map((res) => res.json()));
 }
 
-post(entry){
+createNewEntry(entry){
   return this.http.post(`${environment.BASE_URL}/api/entries`, entry).pipe(map((res) => res.json()));
 }
 

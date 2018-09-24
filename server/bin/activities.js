@@ -8,107 +8,107 @@ const Activity = require('../models/activities');
 const activities = [
   {
     name: 'Biking',
-    image: '../public/images/activities/biking.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/biking_zpsbflmtnmu.png'
   },
   {
     name: 'Cleaning',
-    image: '../public/images/activities/cleaning.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/biking_zpsbflmtnmu.png'
   },
   {
     name: 'Cooking',
-    image: '../public/images/activities/cooking.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/cooking_zpsnzzoeekz.png'
   },
   {
     name: 'Creating/Thinking',
-    image: '../public/images/activities/creating.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/creating_zpswbsuwg85.png'
   },
   {
     name: 'Dancing/Party',
-    image: '../public/images/activities/dancing.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/dancing_zpsvky8fqwb.png'
   },
   {
     name: 'Dating',
-    image: '../public/images/activities/dating.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/dancing_zpsvky8fqwb.png'
   },
   {
     name: 'Drinking',
-    image: '../public/images/activities/drinking.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/drinking_zpsu7vwvzch.png'
   },
   {
     name: 'Eating',
-    image: '../public/images/activities/eating.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/eating_zpsybc2p1af.png'
   },
   {
     name: 'Fishing',
-    image: '../public/images/activities/fishing.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/fishing_zpsgjfvhi6v.png'
   },
   {
     name: 'Gaming',
-    image: '../public/images/activities/gaming.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/gaming_zpsuczcttlp.png'
   },
   {
-        name: 'Homework/Studying',
-    image: '../public/images/activities/homework.png'
+   name: 'Homework/Studying',
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/homework_zpszvttb5u8.png'
   },
   {
     name: 'Movies',
-    image: '../public/images/activities/Movies.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/Movies_zpsmrs9pktf.png'
   },
   {
     name: 'Outdoors',
-    image: '../public/images/activities/outdoors.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/outdoors_zpsn7nmpzef.png'
   },
   {
     name: 'Pet Time',
-    image: '../public/images/activities/pet time.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/pet%20time_zpsf4ecjuz3.png'
   },
   {
     name: 'Reading',
-    image: '../public/images/activities/reading.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/reading_zpsdum9pydp.png'
   },
   {
     name: 'Roller-Blading',
-    image: '../public/images/activities/roller-skating.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/roller-skating_zpszpaxcypy.png'
   },
   {
     name: 'Shopping',
-    image: '../public/images/activities/shopping.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/shopping_zpsivrix5zs.png'
   },
   {
     name: 'Singing',
-    image: '../public/images/activities/singing.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/singing_zpsglem5a7x.png'
   },
   {
     name: 'Social Media',
-    image: '../public/images/activities/social media.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/social%20media_zpsalengiu5.png'
   },
   {
     name: 'Swimming',
-    image: '../public/images/activities/swimming.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/swimming_zpsfb4tz4mr.png'
   },
   {
     name: 'Thinking',
-    image: '../public/images/activities/thinking.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/thinking_zpswrkriwbh.png'
   },
   {
     name: 'Traveling',
-    image: '../public/images/activities/traveling.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/traveling_zps1tq7kjml.png'
   },
   {
     name: 'Watching Sports',
-    image: '../public/images/activities/watching sports.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/watching%20sports_zpshiph91tx.png'
   },
   {
     name: 'Working',
-    image: '../public/images/activities/working.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/working_zpsjd2dcqht.png'
   },
   {
     name: 'Working Out',
-    image: '../public/images/activities/working out.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/working%20out_zpsed0xurfw.png'
   },
   {
     name: 'Yoga',
-    image: '../public/images/activities/yoga.png'
+    image: 'http://i558.photobucket.com/albums/ss30/mafez123/yoga_zpsorcekzjt.png'
   }
 ]
 

@@ -1,3 +1,4 @@
+import { EmotionsService } from './../services/emotions.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmotionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private emotions: EmotionsService,
+    ) { }
 
   ngOnInit() {
+    console.log(this.emotions);
+    this.emotions.getList()
+    .subscribe((emotions)=>{
+      this.emotions = emotions;
+    });
   }
-
 }
+

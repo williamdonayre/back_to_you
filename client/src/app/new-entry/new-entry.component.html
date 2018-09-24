@@ -1,38 +1,47 @@
   <div class="align-items-center d-flex py-5 cover photo-overlay" style="background-image: url('./assets/New+Zealand+Hikes-13.jpg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 my-3">
-          <h1 class="text-center">New Entry
-            <br> </h1>
-          <form class="d-flex flex-column">
-            <div class="form-group">
-              <label for="exampleInputEmail1" [(ngModel)]="newEntry['dateCreated']">Date</label>
-              <input type="date">
-            </div>
-            <div class="form-group my-2">
-              <label>Mood</label>
-              <select class="custom-control custom-select">
-                <option selected="" [(ngModel)]="newEntry['emotion']"> Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select> </div>
-            <div class="form-group my-2">
-                <label>Activity</label>
-              <select class="custom-control custom-select">
-                <option selected=""[(ngModel)]="newEntry['activities']"> Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select> </div>
-            <div class="form-group my-2">
-              <label for="exampleInputEmail1">Comment</label>
-              <textarea class="form-control" id="exampleTextarea" rows="3"  [(ngModel)]="newEntry['comment']"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary m-2 align-self-center" (click)="post()">Submit</button>
-            <a class="btn btn-primary" [routerLink]="['/welcome']">Home</a>
-          </form>
-        </div>
-      </div>
+            <h3>New Entry</h3>
+
+
+<form>
+
+    <label [(ngModel)]="entry['dateCreated']">Date</label>
+    <input type="date">
+  <br>
+
+  <select required class="custom-control custom-select" [(ngModel)]="entry['emotion']">
+      <option selected="" > Open this select menu</option>
+      <option>1</option>
+      <option>2</option>       
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+
+    </select>
+
+    <select required class="custom-control custom-select" [(ngModel)]="entry['activity']">
+        <option selected="" > Open this select menu</option>
+        <option>A</option>
+        <option>B</option>       
+        <option>C</option>
+        <option>D</option>
+        <option>E</option>
+  
+      </select>
+  
+
+  <div class="form-group my-2">
+      <label for="exampleInputEmail1">Comment</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"  [(ngModel)]="entry['comment']"></textarea>
     </div>
+  
+</form>
+                   
+            <button type="submit" class="btn btn-primary m-2 align-self-center" (click)="saveNewEntry()">Submit</button>
+            <a class="btn btn-primary m-2 align-self-center" [routerLink]="['/welcome']">Home</a>
+          <!-- </form>
+             </div>
+      </div>
+    </div> -->
   </div>
+
+ 

@@ -16,17 +16,19 @@ const entrySchema = new Schema({
     required: true
   },
   //Actual emotion entry
-  emotion: {
-    type: Schema.Types.ObjectId,
-    ref: 'Emotion',
-    required: true
-  },
+  emotion: String, 
+  //  {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Emotion',
+  //   required: true
+  // },
   //Array of activities 
-  activities: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Activity',
-    required: true
-  }],
+  activity: String, 
+  // [{
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Activity',
+  //   required: true
+  // }],
 
   //Comment - to add extra info to daily entry - aprox 500 characters in 200 words
   comment: {

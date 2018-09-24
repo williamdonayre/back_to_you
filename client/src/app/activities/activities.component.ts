@@ -1,4 +1,6 @@
+import { ActivitiesService } from './../services/activities.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-activities',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivitiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private activities:ActivitiesService,
+  ) { }
 
-  ngOnInit() {
+  ngOnInit() {console.log(this.activities);
+    this.activities.getList()
+    .subscribe((activities)=>{
+      this.activities = activities;
+    });
   }
 
 }

@@ -1,5 +1,3 @@
-import { ActivitiesService } from './../services/activities.service';
-import { EmotionsService } from './../services/emotions.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -14,47 +12,64 @@ import { SessionService } from './../services/session.service.spec';
 })
 export class NewEntryComponent implements OnInit {
 
-  entry = <any>{};
-  error: string;  
-  baseUrl = environment.BASE_URL;
-
-
-  public newEntry: Object ={};
-  public userName: String;
-  
-  saveError = "";
+ 
+entry = { 
+  dateCreated: '',
+  userId: '',
+  emotion: '',
+  activity: '',
+  comment: ''
+}
+    saveError: String;
   
   constructor(
     private session: SessionService,
     private router: Router,
     private entryService: EntryService,
-    private EmotionsService: EmotionsService,
-    private ActivitiesService: ActivitiesService
+   
   ) { }
 
   ngOnInit() {
-    this.session.isLoggedIn()
+       this.session.isLoggedIn()
       .subscribe(
-        (user) => this.successCb(user)
+       next => {this.entry.userId = next.userId},
+       err => {this.saveError = err;}
       );
   }
-  
-  successCb(entry) {
-    this.entry = entry;
-    this.newEntry = Object.create(entry);
-    this.error = null;
-  }
 
-  errorCb(err) {
-    this.error = err;
-    this.entry = null;
-  }
+   
+  isFormClean(): boolean {
+    if (this.entry.emotion !== '') {
+      return window.confirm(`
+          Unsaved changes.
+          Are you sure you want to leave?
+      `);
+    }
 
-  post(){
-    this.entryService.post(this.newEntry)
-    .subscribe(()=>{
+    return true;
+  }
+ 
+  saveNewEntry(){
+    this.entryService.createNewEntry(this.entry)
+    .subscribe((message)=>{
+      console.log(message);
+      this.ngOnInit()
       this.router.navigate(['/entries']);
     })
-  }
+  } 
 
 }
+  // successCb(entry) {
+  //   this.entry = entry;
+  //   this.emotion = this.entry.emotion;
+  //   this.activity = this.entry.activity;
+  //   this.error = null;
+  // }
+
+  // errorCb(err) {
+  //   this.error = err;
+  //   this.entry = null;
+  // }
+
+
+

@@ -10,7 +10,7 @@ const Entry    = require('../models/entry');
 router.get('/', (req, res, next) => {
   Entry.find()
   .then((entriesList, err) => {
-    console.log(entriesList)
+    console.log(entriesList);
     if (err) {
       res.json(err);
       return;
@@ -69,13 +69,12 @@ router.put('/:id/edit', (req, res, next) => {
   }
 
   const updates = {
-    dateCreated: req.body.dateCreated,
-     userId: req.session.passport.user,    
+     dateCreated: req.body.dateCreated,      
      emotion:req.body.emotion,
-     activities: req.body.activities,
+     activity: req.body.activities,
      comment: req.body.comment
   };
-
+  console.log('REQQQQQQQQQQQQ.BOD' + req.body);
   Entry.findByIdAndUpdate(req.params.id, updates)
   .then(entry => {
     res.json({

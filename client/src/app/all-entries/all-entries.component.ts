@@ -9,15 +9,18 @@ import { environment } from './../../environments/environment.prod';
 })
 export class AllEntriesComponent implements OnInit {
  
-  entries = <any>{};
-  error: string;
-  baseUrl = environment.BASE_URL;
+    baseUrl = environment.BASE_URL;
  
   constructor(
-    
+    private entries: EntryService    
   ) { }
 
   ngOnInit() {
+    console.log(this.entries);
+    this.entries.getEntries()
+    .subscribe((entries) => {
+      this.entries = entries;
+    });
   }
 
 }
