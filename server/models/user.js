@@ -1,7 +1,5 @@
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
 
 
 function capitalize (val) {
@@ -29,8 +27,7 @@ const userSchema = new Schema ({
   entries: [{
     type: Schema.Types.ObjectId,
     ref: 'Entry'
-  }]
-  
+  }] 
 });
   
 

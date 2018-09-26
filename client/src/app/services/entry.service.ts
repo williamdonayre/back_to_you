@@ -19,11 +19,11 @@ get(entry) {
 }
 
 createNewEntry(entry){
-  return this.http.post(`${environment.BASE_URL}/api/entries`, entry).pipe(map((res) => res.json()));
+  return this.http.post(`${environment.BASE_URL}/api/entries/new-entry`, entry, {withCredentials:true}).pipe(map((res) => res.json()));
 }
 
 editEntry(entry) {
-  return this.http.put(`${environment.BASE_URL}/api/entries/${entry._id}/edit`, entry).pipe(map((res) => res.json()));
+  return this.http.put(`${environment.BASE_URL}/api/entries/${entry._id}/edit`, entry, {withCredentials:true}).pipe(map((res) => res.json()));
 }
 
 removeEntry(entryId) {

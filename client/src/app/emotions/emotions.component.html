@@ -1,7 +1,7 @@
 
-<!-- <select required class="custom-control custom-select" >
+<select required class="custom-control custom-select" #emotion  (click)="selectEmotion(emotion.value)" >
     <option selected="" > Open this select menu</option>
-    <option *ngFor="let emotion of emotions"  >
-      <p>{{emotion.name}}</p> 
+    <option *ngFor="let emotion of emotions">
+      {{emotion.name}}
     </option>
-  </select> -->
+  </select>

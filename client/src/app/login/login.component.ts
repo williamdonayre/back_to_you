@@ -41,8 +41,9 @@ export class LoginComponent implements OnInit {
   }
 
   signup() {
+    console.log('IT WORKED');
     this.session.signup(this.formInfo)
-      .subscribe(
+    .subscribe(
         (user) => this.successCb(user),
         (err) => this.errorCb(err)
       );

@@ -1,6 +1,6 @@
-   <!-- <select class="custom-control custom-select">
+   <select class="custom-control custom-select" #activity (click)="selectActivity(activity.value)">
       <option selected="" > Open this select menu</option>
       <option *ngFor="let activity of activities"  >
-        <p>{{activity.name}}</p>
+        {{activity.name}}
       </option>
-    </select> -->
+    </select>

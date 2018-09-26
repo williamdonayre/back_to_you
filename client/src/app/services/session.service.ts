@@ -1,4 +1,4 @@
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {map, catchError} from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SessionService {
   mainURL:string = environment.BASE_URL;
   constructor(private http: Http) { }
@@ -15,7 +16,7 @@ export class SessionService {
   }
 
   signup(user) {
-    return this.http.post(`${this.mainURL}/signup`, user).pipe(map(res => res.json()),catchError(this.handleError));
+    return this.http.post(`${this.mainURL}/signup`, user, {withCredentials:true}).pipe(map(res => res.json()),catchError(this.handleError));
   }
 
   login(user) {

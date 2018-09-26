@@ -8,20 +8,20 @@ const Entry    = require('../models/entry');
 
 //Route to view all entries
 router.get('/', (req, res, next) => {
-  Entry.find()
-  .then((entriesList, err) => {
-    console.log(entriesList);
+  Users.findById.populate('entries');
+  .then((entries, err) => {
+    console.log(entries);
     if (err) {
       res.json(err);
       return;
     }
-    res.json(entriesList);
+    res.json(entries);
   })
   .catch(error => next(error));
 });
 
 //Route to create entry
-router.post('/new-entry', (req, res, next) =>{
+router.post('/new-entry',  (req, res, next) =>{
   // userId = User.Id;
   console.log("DID IT WORkkkkkkK" + req.session);
   const theEntry = new Entry ({
@@ -31,14 +31,12 @@ router.post('/new-entry', (req, res, next) =>{
      activities: req.body.activities,
      comment: req.body.comment
        });
-
-
+    req.user.entries.push(theEntry);
   // Save new entry to DB
     theEntry.save()
     .then(response => {
-      console.log("suuuuuuuuuuuuuuup mah dude",response)
-   
-      res.json({
+      console.log("suuuuuuuuuuuuuuup mah dude",response + req.session.passport.user);
+         res.json({
           message:'Entry created! We hope to optimize your mood',
         id: theEntry._id
       });
@@ -53,7 +51,6 @@ router.get('/:id', (req, res, next) => {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;
   }
-
   Entry.findById(req.params.id)
   .then(theEntry => {
       res.json(theEntry);

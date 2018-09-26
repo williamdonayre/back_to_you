@@ -11,11 +11,12 @@ import { SessionService } from './../services/session.service.spec';
   styleUrls: ['./new-entry.component.css']
 })
 export class NewEntryComponent implements OnInit {
+user = Object;
 
+public userId: Object ={};
  
 entry = { 
   dateCreated: '',
-  userId: '',
   emotion: '',
   activity: '',
   comment: ''
@@ -26,31 +27,36 @@ entry = {
     private session: SessionService,
     private router: Router,
     private entryService: EntryService,
-   
+    
   ) { }
 
   ngOnInit() {
-       this.session.isLoggedIn()
+    this.session.isLoggedIn()
       .subscribe(
-       next => {this.entry.userId = next.userId},
-       err => {this.saveError = err;}
+        (user) => this.successCb(user)
       );
   }
 
-   
-  isFormClean(): boolean {
-    if (this.entry.emotion !== '') {
-      return window.confirm(`
-          Unsaved changes.
-          Are you sure you want to leave?
-      `);
-    }
-
-    return true;
+  successCb(user) {
+    this.user = user,
+    this.userId = user._id    
   }
+
+   
+  // isFormClean(): boolean {
+  //   if (this.entry.emotion !== '') {
+  //     return window.confirm(`
+  //         Unsaved changes.
+  //         Are you sure you want to leave?
+  //     `);
+  //   }
+
+  //   return true;
+  // }
  
-  saveNewEntry(){
-    this.entryService.createNewEntry(this.entry)
+  saveNewEntry(entry){
+    console.log(entry);
+    this.entryService.createNewEntry(entry)
     .subscribe((message)=>{
       console.log(message);
       this.ngOnInit()

@@ -1,43 +1,20 @@
   <div class="align-items-center d-flex py-5 cover photo-overlay" style="background-image: url('./assets/New+Zealand+Hikes-13.jpg');">
-            <h3>New Entry</h3>
+            <div><h3>New Entry</h3></div>
 
 
-<form>
-
-    <label [(ngModel)]="entry['dateCreated']">Date</label>
-    <input type="date">
+    <label>Date</label>
+    <input type="date" [(ngModel)]="entry.dateCreated">
   <br>
-
-  <select required class="custom-control custom-select" [(ngModel)]="entry['emotion']">
-      <option selected="" > Open this select menu</option>
-      <option>1</option>
-      <option>2</option>       
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-
-    </select>
-
-    <select required class="custom-control custom-select" [(ngModel)]="entry['activity']">
-        <option selected="" > Open this select menu</option>
-        <option>A</option>
-        <option>B</option>       
-        <option>C</option>
-        <option>D</option>
-        <option>E</option>
-  
-      </select>
-  
-
+  <app-emotions></app-emotions>
+  <br>
+  <app-activities></app-activities>    
+  <br>
   <div class="form-group my-2">
-      <label for="exampleInputEmail1">Comment</label>
-      <textarea class="form-control" id="exampleTextarea" rows="3"  [(ngModel)]="entry['comment']"></textarea>
-    </div>
-  
-</form>
-                   
-            <button type="submit" class="btn btn-primary m-2 align-self-center" (click)="saveNewEntry()">Submit</button>
-            <a class="btn btn-primary m-2 align-self-center" [routerLink]="['/welcome']">Home</a>
+      <label>Comment</label>
+      <input class="form-control" id="exampleTextarea" rows="3"  [(ngModel)]="entry.comment">
+    </div>   
+   <button class="btn btn-primary m-2 align-self-center" (click)="saveNewEntry(entry)">Submit</button>
+    <a class="btn btn-primary m-2 align-self-center" [routerLink]="['/welcome']">Home</a>
           <!-- </form>
              </div>
       </div>
