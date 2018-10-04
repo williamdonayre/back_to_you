@@ -1,27 +1,29 @@
 <div class="align-items-center d-flex py-5 cover photo-overlay" style="background-image: url('./assets/USA+Road+Trip-6.jpg');">
   <div class="container">
     <div class="row">
+
       <div class="col-md-6">
         <h1 class="">Hello, {{ user.name }}!</h1>
-        <img class="img-fluid d-block rounded" [src]="user.profilePic" id="profileimage" height="300">
-        <p class="prof-info"> We want you to know that you are in good hands</p>
-        <p>The information and patterns you find within your personal data is completely yours.</p>
-        <p>Pay attention to the activities that enhance your mood</p>
+        <img class="img-fluid d-block rounded" [src]="user.profilePic" id="profileimage" height="200">
+        <br>
+        <p class="prof-info"> We want you to know that you are in good hands.
+        The information and patterns you find within your personal data is completely yours.
+        Pay attention to the activities that enhance your mood and those that deplete it.</p>
       </div>
       <div class="col-md-6 my-3">
         <h1 class="text-center">My Profile
           <br> </h1>
         <ul class="h-50 d-flex flex-column list-unstyled">
-          <p class="text-white">Name:{{user.name}}</p>
+          <p class="text-white">Name:  {{user.name}}</p>
           <br>
-          <p class="text-white">Username:{{user.username}}</p>
+          <p class="text-white">Username:  {{user.username}}</p>
           <br>
-          <p class="text-white">Location: {{user.location}}</p>
+          <p class="text-white">Location:  {{user.location}}</p>
           <br>
-          <button type="button" class="btn btn-info btn-lg" (click)="showModal()" >Edit Profile</button>
-          <!-- <button class="edit-user" (click)="editUser()"> Edit Profile </button> -->
-          <button class="delete-user" (click)="deleteUser()"> Delete Profile </button>
-          <a class="btn btn-primary" [routerLink]="['/welcome']">Home</a>
+          <br>
+          <button type="button" class="btn btn-info btn-lg"(click)="showModal()" >Edit Profile</button>
+          <button type="button" class="btn btn-warning btn-lg" (click)="deleteUser()">Delete Profile</button>
+          <button type="button" class="btn btn-success btn-lg" [routerLink]="['/welcome']">Home</button>
         </ul>
       </div>
     </div>
@@ -35,18 +37,22 @@
     
 
       <div class="modal-item">
+        <label class = "label"><b>Name:</b></label>
           <input id="name-input" type="text" [(ngModel)]="updatedUser['name']" name="userName">
-          <br>
+          <br><br>
+          <label class = "label"><b>Username:</b></label>
           <input id="username-input" type="text"  [(ngModel)]="updatedUser['username']" name="username">
-          <br>
+          <br><br>
+          <label class = "label"><b>Location:</b></label>
           <input id="location-input" type="text"  [(ngModel)]="updatedUser['location']" name="userLocation">
-          <br>
+          <br><br>
         </div>
 
-      <div class="modal-buttons">
-          <button type="button" class="btn btn-default" (click)="editUser()">Submit</button>
+    <div class="modal-buttons">
+    <button type="button" class="btn btn-default" (click)="editUser()">Submit</button>
+    <br><br>
     <button type="button" class="btn btn-default" (click)="hideModal()">Cancel</button>
-      </div>
+    </div>
 
     </div>
   </div>

@@ -1,0 +1,18 @@
+.align-items-center{
+  font-size: 2em;
+  color: #f8fafa;
+}
+
+a {
+  color: #f8fafa ;
+  font-family: helvetica;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

@@ -8,18 +8,17 @@ const Entry    = require('../models/entry');
 
 //Route to view all entries
 router.get('/', (req, res, next) => {
-  Users.findById.populate('entries');
-  .then((entries, err) => {
-    console.log(entries);
+  Entry.find()
+  .then((entriesList, err) => {
+    console.log(entriesList);
     if (err) {
       res.json(err);
       return;
     }
-    res.json(entries);
+    res.json(entriesList);
   })
   .catch(error => next(error));
 });
-
 //Route to create entry
 router.post('/new-entry',  (req, res, next) =>{
   // userId = User.Id;
@@ -79,7 +78,7 @@ router.put('/:id/edit', (req, res, next) => {
     });
   }) 
   .catch(error => next(error));     
-}) 
+}); 
 
 
 //Route to delete entry
