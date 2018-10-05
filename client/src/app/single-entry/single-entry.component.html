@@ -1,3 +1,61 @@
 <p>
   single-entry works!
 </p>
+
+<div class="align-items-center d-flex py-5 cover photo-overlay" style="background-image: url('./../../assets/editEntry.jpg');">
+  <div class="container">
+    <div class="row">
+
+       <div class="col-md-6 my-3">
+        <h1 class="text-center"> Entry  </h1>
+          <br>
+        <ul class="h-50 d-flex flex-column list-unstyled">
+          <p class="text-white">Date:  {{entry.dateCreated}}</p>
+          <br>
+          <p class="text-white">Emotion: {{entry.emotion}}</p>
+          <br>
+          <p class="text-white">Avtivity:  {{entry.activity}}</p>
+          <br>
+          <p class="text-white">Comment:  {{entry.comment}}</p>
+          <br>
+          <button type="button" class="btn btn-info btn-lg"(click)="showModal()" > Edit Entry</button>
+          <button type="button" class="btn btn-warning btn-lg" (click)="deleteUser()">Delete Entry</button>
+          <button type="button" class="btn btn-success btn-lg" [routerLink]="['/welcome']">Home</button>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- The modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+    
+
+      <div class="modal-item">
+        <label class = "label"><b>Date:</b></label>
+          <input id="name-input" type="date" [(ngModel)]="updatedEntry['dateCreated']" name="date">
+          <br><br>
+          <label class = "label"><b>Emotion:</b></label>
+          <app-emotions></app-emotions>
+          <br><br>
+          <label class = "label"><b>Avtivity:</b></label>
+          <app-activities></app-activities> 
+          <br><br>
+          <label class = "label"><b>Comment:</b></label>
+          <input id="location-input" type="text"  [(ngModel)]="updatedEntry['comment']" name="entryComment">
+        </div>
+
+    <div class="modal-buttons">
+    <button type="button" class="btn btn-default" (click)="editEntry()">Submit</button>
+    <br><br>
+    <button type="button" class="btn btn-default" (click)="hideModal()">Cancel</button>
+    </div>
+
+    </div>
+  </div>
+  
+
+
+
